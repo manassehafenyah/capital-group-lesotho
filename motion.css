@@ -1,0 +1,20 @@
+.hero{background-image:none;overflow:hidden}
+.hero::after{content:'';position:absolute;inset:0;z-index:-2;background:url('assets/home-datacentre.png') center/cover no-repeat;animation:hero-zoom 28s ease-in-out infinite alternate;pointer-events:none}
+.visual-media.in{animation:card-drift 7s ease-in-out infinite}
+.rack-sweep{animation:rack-scan 5s ease-in-out infinite;opacity:.5}
+.signal-dot{offset-distance:0%;animation:signal-travel 3.8s linear infinite;fill:#10bca5}
+.consultation-screen{animation:screen-pulse 5s ease-in-out infinite}
+.consultation-line{transform-box:fill-box;transform-origin:left center;animation:text-pulse 4s ease-in-out infinite}
+.consultation-line:nth-child(2){animation-delay:.7s}
+.reveal .scroll-check{stroke-dasharray:40;stroke-dashoffset:40}
+.reveal.in .scroll-check{animation:check-reveal 1.2s ease .3s both}
+@keyframes hero-zoom{from{transform:scale(1)}to{transform:scale(1.09) translateX(-1%)}}
+@keyframes card-drift{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes rack-scan{0%,100%{transform:translateY(0);opacity:0}15%,80%{opacity:.5}90%{transform:translateY(190px);opacity:0}}
+@keyframes signal-travel{to{offset-distance:100%}}
+@keyframes screen-pulse{0%,100%{fill:#fff}50%{fill:#d6f7ee}}
+@keyframes text-pulse{0%,100%{opacity:.5;transform:scaleX(.88)}50%{opacity:1;transform:scaleX(1)}}
+@keyframes check-reveal{to{stroke-dashoffset:0}}
+.motion-paused *, .motion-paused *::before,.motion-paused *::after{animation-play-state:paused!important}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important}.reveal .scroll-check{stroke-dashoffset:0}.rack-sweep{display:none}.visual-media{transform:none!important}}
+@media(max-width:850px){.hero::after{background-position:62% center}}
