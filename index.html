@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Capital Group of Companies Lesotho — enterprise IT infrastructure, cloud and managed services.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<title>Capital Group Lesotho</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Condensed:wght@600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --bg:#F2F5F8;
+    --surface:#FFFFFF;
+    --surface-2:#E9EEF3;
+    --ink:#0F1826;
+    --ink-soft:#54627A;
+    --ink-faint:#8391A6;
+    --accent:#0E8C80;
+    --accent-strong:#0A6A61;
+    --accent-soft:#DCEFEC;
+    --line:rgba(15,24,38,0.10);
+    --line-strong:rgba(15,24,38,0.18);
+    --amber:#B76A00;
+    --amber-soft:#FBEBD3;
+    --red:#B4331F;
+    --red-soft:#F8DFDA;
+    --shadow:0 1px 2px rgba(15,24,38,0.06), 0 8px 24px -12px rgba(15,24,38,0.18);
+    --radius:14px;
+    --font-disp:'IBM Plex Sans Condensed',system-ui,sans-serif;
+    --font-body:'IBM Plex Sans',system-ui,sans-serif;
+    --font-mono:'IBM Plex Mono',ui-monospace,monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0B121C;
+      --surface:#111A28;
+      --surface-2:#16202F;
+      --ink:#E8EDF4;
+      --ink-soft:#A3B1C4;
+      --ink-faint:#6C7A90;
+      --accent:#2FD9C6;
+      --accent-strong:#5CE8D8;
+      --accent-soft:#122C2A;
+      --line:rgba(232,237,244,0.10);
+      --line-strong:rgba(232,237,244,0.20);
+      --amber:#E8A33D;
+      --amber-soft:#2E2312;
+      --red:#E2685A;
+      --red-soft:#301715;
+      --shadow:0 1px 2px rgba(0,0,0,0.3), 0 12px 28px -14px rgba(0,0,0,0.6);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0B121C;
+    --surface:#111A28;
+    --surface-2:#16202F;
+    --ink:#E8EDF4;
+    --ink-soft:#A3B1C4;
+    --ink-faint:#6C7A90;
+    --accent:#2FD9C6;
+    --accent-strong:#5CE8D8;
+    --accent-soft:#122C2A;
+    --line:rgba(232,237,244,0.10);
+    --line-strong:rgba(232,237,244,0.20);
+    --amber:#E8A33D;
+    --amber-soft:#2E2312;
+    --red:#E2685A;
+    --red-soft:#301715;
+    --shadow:0 1px 2px rgba(0,0,0,0.3), 0 12px 28px -14px rgba(0,0,0,0.6);
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--font-body);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:var(--font-disp);
+    font-weight:700;
+    color:var(--ink);
+    text-wrap:balance;
+    margin:0;
+  }
+  p{margin:0;}
+  a{color:inherit;}
+  ul{margin:0;padding:0;list-style:none;}
+  .mono{font-family:var(--font-mono);}
+  .wrap{max-width:1120px;margin:0 auto;padding-inline:20px;}
+  .eyebrow{
+    font-family:var(--font-mono);
+    font-size:12.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--accent-strong);
+    display:flex;align-items:center;gap:8px;
+  }
+  .eyebrow::before{content:"";width:18px;height:1px;background:var(--accent);}
+  section{padding-block:76px;}
+  section:not(:last-of-type){border-bottom:1px solid var(--line);}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1;transform:none;}
+  @media (prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none;}
+  }
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:sticky;top:env(safe-area-inset-top,0px);z-index:50;
+    background:color-mix(in srgb, var(--bg) 86%, transparent);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:1120px;margin:0 auto;padding:14px 20px;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.01em;white-space:nowrap;}
+  .brand-mark{width:30px;height:30px;flex:none;}
+  .brand-logo-wrap{background:#fff;border-radius:8px;padding:6px 10px;display:inline-flex;align-items:center;box-shadow:0 1px 2px rgba(0,0,0,.08);flex:none;}
+  .brand-logo{height:22px;width:auto;display:block;}
+  .footer-inner .brand-logo{height:26px;}
+  .brand-sub{display:block;font-family:var(--font-mono);font-weight:500;font-size:10.5px;letter-spacing:.1em;color:var(--ink-faint);text-transform:uppercase;white-space:nowrap;}
+  .brand small{display:block;font-family:var(--font-mono);font-weight:500;font-size:10.5px;letter-spacing:.1em;color:var(--ink-faint);text-transform:uppercase;}
+  .nav-links{display:flex;gap:22px;font-size:13.5px;color:var(--ink-soft);overflow-x:auto;scrollbar-width:none;}
+  .nav-links::-webkit-scrollbar{display:none;}
+  .nav-links a{white-space:nowrap;text-decoration:none;padding-block:4px;border-bottom:2px solid transparent;transition:color .15s, border-color .15s;}
+  .nav-links a:hover{color:var(--ink);border-color:var(--accent);}
+  .nav-cta{
+    font-family:var(--font-mono);font-size:12.5px;font-weight:600;
+    background:var(--accent);color:#04211D;padding:9px 14px;border-radius:8px;
+    text-decoration:none;white-space:nowrap;flex:none;
+    cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:2px;
+  }
+  .nav-cta::-webkit-details-marker{display:none;}
+  .cta-menu{position:relative;flex:none;}
+  .cta-menu-panel{
+    position:absolute;top:calc(100% + 8px);right:0;z-index:60;
+    background:var(--surface);border:1px solid var(--line-strong);border-radius:12px;
+    box-shadow:var(--shadow);padding:8px;min-width:216px;display:flex;flex-direction:column;gap:2px;
+  }
+  .cta-menu-item{
+    display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:8px;
+    text-decoration:none;color:var(--ink);transition:background .12s ease;
+  }
+  .cta-menu-item:hover{background:var(--surface-2);}
+  .cta-menu-item svg{flex:none;color:var(--accent-strong);}
+  .cta-menu-item strong{display:block;font-size:13px;}
+  .cta-menu-item small{display:block;font-family:var(--font-mono);font-size:11px;color:var(--ink-soft);}
+  @media (max-width:760px){ .nav-links{display:none;} }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    --hero-fg:#F4F8FA;
+    --hero-fg-soft:rgba(244,248,250,.82);
+    --hero-accent:#5CE8D8;
+    position:relative;overflow:hidden;
+    padding-block:88px 96px;
+    border-bottom:1px solid var(--line);
+    background:
+      linear-gradient(180deg, rgba(5,12,20,.58) 0%, rgba(5,12,20,.72) 45%, rgba(5,12,20,.94) 100%),
+      url("assets/datacentre.jpg") center 42%/cover no-repeat;
+  }
+  .hero{background-size:auto,100% auto;animation:heroZoom 26s ease-in-out infinite alternate;}
+  @keyframes heroZoom{from{background-size:auto,100% auto;}to{background-size:auto,114% auto;}}
+  @media (prefers-reduced-motion:reduce){ .hero{animation:none;} }
+  .hero-content{position:relative;z-index:1;max-width:1120px;margin:0 auto;padding-inline:20px;}
+  .hero-tag{
+    font-family:var(--font-mono);color:var(--hero-accent);font-size:12.5px;
+    letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px;display:inline-flex;gap:10px;align-items:center;
+    background:rgba(6,14,22,.5);border:1px solid rgba(244,248,250,.22);padding:6px 12px;border-radius:999px;
+    backdrop-filter:blur(6px);
+  }
+  .hero-tag .dot{width:6px;height:6px;border-radius:50%;background:var(--hero-accent);animation:pulse 2.2s ease-in-out infinite;}
+  @keyframes pulse{0%,100%{opacity:.4;}50%{opacity:1;}}
+  @media (prefers-reduced-motion:reduce){ .hero-tag .dot{animation:none;} }
+  h1.hero-title{
+    font-size:clamp(34px,5.4vw,60px);
+    line-height:1.04;
+    max-width:16ch;
+    margin-bottom:20px;
+    color:var(--hero-fg);
+    text-shadow:0 2px 24px rgba(0,0,0,.35);
+  }
+  h1.hero-title em{font-style:normal;color:var(--hero-accent);}
+  .hero-sub{
+    max-width:56ch;color:var(--hero-fg-soft);font-size:16.5px;margin-bottom:30px;
+  }
+  .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:48px;}
+  .hero .btn-ghost{color:var(--hero-fg);border-color:rgba(244,248,250,.35);}
+  .btn{
+    font-family:var(--font-mono);font-size:13.5px;font-weight:600;
+    padding:12px 18px;border-radius:9px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;
+    border:1px solid transparent;transition:transform .15s ease, background .15s ease;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn-primary{background:var(--accent);color:#04211D;}
+  .btn-ghost{background:transparent;border-color:var(--line-strong);color:var(--ink);}
+  .hero-stats{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+    background:rgba(244,248,250,.16);border:1px solid rgba(244,248,250,.16);border-radius:var(--radius);overflow:hidden;
+    backdrop-filter:blur(6px);
+  }
+  .hero-stat{background:rgba(6,14,22,.5);padding:18px 16px;}
+  .hero-stat .n{font-family:var(--font-mono);font-size:20px;font-weight:600;color:var(--hero-accent);}
+  .hero-stat .l{font-size:12px;color:var(--hero-fg-soft);margin-top:4px;}
+  @media (max-width:700px){ .hero-stats{grid-template-columns:repeat(2,1fr);} }
+
+  /* ---------- GENERIC LAYOUT ---------- */
+  .section-head{max-width:64ch;margin-bottom:40px;}
+  .section-head h2{font-size:clamp(24px,3.4vw,34px);margin-top:10px;}
+  .section-head p{color:var(--ink-soft);margin-top:12px;font-size:15.5px;}
+  .two-col{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:start;}
+  @media (max-width:820px){ .two-col{grid-template-columns:1fr;} }
+  .card{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px;box-shadow:var(--shadow);
+  }
+
+  /* ---------- ABOUT / NETWORK DIAGRAM ---------- */
+  .lede{font-size:17px;color:var(--ink-soft);margin-bottom:16px;}
+  .diagram{aspect-ratio:1/1;max-width:340px;margin-inline:auto;}
+  .diagram svg{width:100%;height:100%;}
+
+  /* ---------- VISION / MISSION ---------- */
+  .vm-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  @media (max-width:700px){ .vm-grid{grid-template-columns:1fr;} }
+  .vm-card{padding:26px;}
+  .vm-card .icon{color:var(--accent-strong);margin-bottom:14px;}
+  .vm-card h3{font-size:19px;margin-bottom:10px;}
+  .vm-card p{color:var(--ink-soft);font-size:14.5px;}
+
+  /* ---------- VALUES ---------- */
+  .values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  @media (max-width:820px){ .values-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:520px){ .values-grid{grid-template-columns:1fr;} }
+  .value-card{padding:18px;}
+  .value-card .num{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-faint);}
+  .value-card h4{font-size:15.5px;margin:8px 0 6px;}
+  .value-card p{font-size:13.5px;color:var(--ink-soft);}
+
+  /* ---------- SERVICES MODULES ---------- */
+  .menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:12px;}
+  .menu-tile{
+    display:flex;flex-direction:column;gap:12px;
+    background:var(--surface);border:1px solid var(--line);border-radius:12px;
+    padding:16px;text-decoration:none;color:var(--ink);
+    transition:transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+  }
+  .menu-tile:hover{transform:translateY(-2px);border-color:var(--accent);box-shadow:var(--shadow);}
+  .menu-tile .mt-icon{width:32px;height:32px;border-radius:8px;background:var(--accent-soft);color:var(--accent-strong);display:flex;align-items:center;justify-content:center;flex:none;}
+  .menu-tile .mt-code{font-family:var(--font-mono);font-size:10px;color:var(--ink-faint);letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:3px;}
+  .menu-tile .mt-title{font-size:13px;font-weight:600;line-height:1.32;}
+  details.module{scroll-margin-top:88px;}
+
+  .modules{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media (max-width:820px){ .modules{grid-template-columns:1fr;} }
+  details.module{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    padding:0;overflow:hidden;
+  }
+  details.module summary{
+    list-style:none;cursor:pointer;padding:20px 22px;display:flex;gap:14px;align-items:flex-start;
+  }
+  details.module summary::-webkit-details-marker{display:none;}
+  .mod-icon{
+    width:38px;height:38px;flex:none;border-radius:9px;background:var(--accent-soft);
+    display:flex;align-items:center;justify-content:center;color:var(--accent-strong);
+  }
+  .mod-head{flex:1;}
+  .mod-code{font-family:var(--font-mono);font-size:11px;color:var(--ink-faint);letter-spacing:.08em;}
+  .mod-title{font-size:16.5px;font-weight:600;margin-top:2px;}
+  .mod-blurb{font-size:13.5px;color:var(--ink-soft);margin-top:4px;}
+  .chevron{flex:none;color:var(--ink-faint);transition:transform .2s ease;margin-top:4px;}
+  details[open] .chevron{transform:rotate(180deg);}
+  .mod-body{padding:0 22px 22px 74px;}
+  .mod-body ul{display:flex;flex-direction:column;gap:7px;}
+  .mod-body li{
+    font-size:13.5px;color:var(--ink-soft);padding-left:16px;position:relative;
+  }
+  .mod-body li::before{
+    content:"";position:absolute;left:0;top:8px;width:6px;height:1px;background:var(--accent);
+  }
+  .mod-group-label{font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--accent-strong);margin:14px 0 8px;}
+  .mod-group-label:first-child{margin-top:0;}
+
+  .highlights{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px;}
+  @media (max-width:820px){ .highlights{grid-template-columns:1fr;} }
+  .hl-card{padding:20px;}
+  .hl-card h4{font-size:14.5px;margin-bottom:6px;}
+  .hl-card p{font-size:13px;color:var(--ink-soft);}
+
+  /* ---------- INDUSTRY ---------- */
+  .industry-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  @media (max-width:820px){ .industry-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:520px){ .industry-grid{grid-template-columns:1fr;} }
+  .industry-card{padding:18px;display:flex;gap:12px;align-items:flex-start;}
+  .industry-card .icon{color:var(--accent-strong);flex:none;margin-top:2px;}
+  .industry-card h4{font-size:14.5px;margin-bottom:4px;}
+  .industry-card p{font-size:12.5px;color:var(--ink-soft);}
+
+  /* ---------- WHY CHOOSE ---------- */
+  .why-list{display:flex;flex-direction:column;gap:0;}
+  .why-item{
+    display:flex;gap:16px;padding-block:18px;border-top:1px solid var(--line);align-items:flex-start;
+  }
+  .why-item:last-child{border-bottom:1px solid var(--line);}
+  .why-num{font-family:var(--font-mono);color:var(--accent-strong);font-size:13px;flex:none;width:34px;padding-top:2px;}
+  .why-item p{color:var(--ink-soft);font-size:14.5px;}
+  .why-item strong{color:var(--ink);}
+
+  /* ---------- SLA TABLE ---------- */
+  .table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);}
+  table.sla{width:100%;border-collapse:collapse;min-width:560px;}
+  table.sla th, table.sla td{padding:14px 18px;text-align:left;font-size:13.5px;}
+  table.sla thead th{
+    font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;
+    color:var(--ink-faint);border-bottom:1px solid var(--line);
+  }
+  table.sla tbody tr:not(:last-child) td{border-bottom:1px solid var(--line);}
+  table.sla td.metric{font-family:var(--font-mono);font-variant-numeric:tabular-nums;color:var(--ink-soft);}
+  .chip{
+    display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:12px;
+    padding:4px 10px;border-radius:999px;font-weight:600;
+  }
+  .chip::before{content:"";width:6px;height:6px;border-radius:50%;}
+  .chip.crit{background:var(--red-soft);color:var(--red);}
+  .chip.crit::before{background:var(--red);}
+  .chip.std{background:var(--amber-soft);color:var(--amber);}
+  .chip.std::before{background:var(--amber);}
+  .chip.low{background:var(--accent-soft);color:var(--accent-strong);}
+  .chip.low::before{background:var(--accent);}
+  .chip.rev{background:var(--surface-2);color:var(--ink-soft);}
+  .chip.rev::before{background:var(--ink-faint);}
+
+  /* ---------- TIMELINE ---------- */
+  .timeline{position:relative;padding-left:26px;}
+  .timeline::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:1px;background:var(--line-strong);}
+  .tl-item{position:relative;padding-bottom:28px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{
+    content:"";position:absolute;left:-26px;top:5px;width:11px;height:11px;border-radius:50%;
+    background:var(--surface);border:2px solid var(--accent);
+  }
+  .tl-tag{font-family:var(--font-mono);font-size:11px;color:var(--accent-strong);text-transform:uppercase;letter-spacing:.06em;}
+  .tl-item h4{font-size:15.5px;margin:4px 0 5px;}
+  .tl-item p{font-size:13.5px;color:var(--ink-soft);}
+
+  /* ---------- PARTNERS ---------- */
+  .partner-wall{display:flex;flex-wrap:wrap;gap:10px;}
+  .partner-badge{
+    font-family:var(--font-mono);font-size:13px;font-weight:600;
+    border:1px solid var(--line-strong);border-radius:8px;padding:8px 14px 8px 8px;color:var(--ink-soft);
+    background:var(--surface);display:inline-flex;align-items:center;gap:9px;
+  }
+  .partner-badge::before{
+    content:attr(data-mono);width:22px;height:22px;border-radius:6px;flex:none;
+    background:var(--accent-soft);color:var(--accent-strong);font-size:11px;font-weight:700;
+    display:inline-flex;align-items:center;justify-content:center;
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact-band{
+    background:var(--ink);color:var(--bg);border-radius:20px;padding:44px;
+    display:grid;grid-template-columns:1.1fr .9fr;gap:36px;
+  }
+  :root:not([data-theme="light"]) .contact-band{background:var(--surface-2);color:var(--ink);border:1px solid var(--line-strong);}
+  :root[data-theme="dark"] .contact-band{background:var(--surface-2);color:var(--ink);border:1px solid var(--line-strong);}
+  @media (max-width:820px){ .contact-band{grid-template-columns:1fr;padding:28px;} }
+  .contact-band h2{color:inherit;font-size:clamp(22px,3vw,30px);}
+  .contact-band p{color:inherit;opacity:.75;margin-top:10px;font-size:14.5px;max-width:44ch;}
+  .contact-fields{display:flex;flex-direction:column;gap:10px;}
+  .field{
+    border:1px dashed color-mix(in srgb, currentColor 35%, transparent);
+    border-radius:10px;padding:12px 14px;font-family:var(--font-mono);font-size:12.5px;
+    display:flex;justify-content:space-between;gap:10px;opacity:.85;
+  }
+  .field span:first-child{opacity:.6;text-transform:uppercase;letter-spacing:.06em;font-size:10.5px;}
+
+  /* ---------- VISUAL BANDS ---------- */
+  .visual-band{background:var(--surface-2);border-bottom:1px solid var(--line);}
+  .visual-inner{max-width:1120px;margin:0 auto;padding:64px 20px;display:grid;grid-template-columns:.95fr 1.05fr;gap:44px;align-items:center;}
+  .visual-reverse .visual-inner{grid-template-columns:1.05fr .95fr;}
+  .visual-reverse .visual-media{order:2;}
+  @media (max-width:820px){ .visual-inner, .visual-reverse .visual-inner{grid-template-columns:1fr;} .visual-reverse .visual-media{order:0;} }
+  .visual-media{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);animation:floatCard 6s ease-in-out infinite;}
+  .visual-media svg{width:100%;height:auto;display:block;overflow:visible;}
+  .visual-text h3{font-size:clamp(20px,2.6vw,27px);margin:12px 0 12px;}
+  @keyframes floatCard{0%,100%{transform:translateY(0);}50%{transform:translateY(-5px);}}
+  @keyframes flowDash{to{stroke-dashoffset:-24;}}
+  .flow-tray{animation:flowDash 1.4s linear infinite;}
+  @keyframes travel{0%{offset-distance:0%;opacity:0;}8%{opacity:1;}88%{opacity:1;}100%{offset-distance:100%;opacity:0;}}
+  .signal{offset-rotate:0deg;filter:drop-shadow(0 0 3px var(--accent));}
+  .draw{stroke-dasharray:40;stroke-dashoffset:40;transition:stroke-dashoffset .9s ease .3s;}
+  .reveal.in .draw{stroke-dashoffset:0;}
+  @keyframes scanSweep{0%,100%{transform:translateX(-30px);opacity:0;}12%{opacity:.55;}50%{transform:translateX(360px);opacity:.55;}62%{opacity:0;}}
+  .scan-bar{animation:scanSweep 5.5s ease-in-out infinite;}
+  .glow-pulse{animation:pulse 3.2s ease-in-out infinite;}
+  @keyframes typeWidth{0%,100%{transform:scaleX(.55);}50%{transform:scaleX(1);}}
+  .type-line{transform-origin:left center;animation:typeWidth 3.6s ease-in-out infinite;}
+  @keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(-2.5px);}}
+  .figure-bob{animation:bob 3.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center bottom;}
+  @keyframes blink{0%,90%,100%{transform:scaleY(1);}94%,97%{transform:scaleY(.12);}}
+  .blink{animation:blink 5s ease-in-out infinite;}
+  @keyframes ripple{0%{transform:scale(.3);opacity:.75;}100%{transform:scale(2.4);opacity:0;}}
+  .tap-ripple{animation:ripple 2.4s ease-out infinite;}
+  @keyframes walkGlance{0%,100%{transform:translateX(0);}50%{transform:translateX(2px) rotate(1deg);}}
+  .tech-figure{animation:walkGlance 4.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center bottom;}
+  @keyframes clipboardCheck{0%,100%{stroke-dashoffset:14;}50%{stroke-dashoffset:0;}}
+  .tech-check{stroke-dasharray:14;animation:clipboardCheck 3.2s ease-in-out infinite;}
+  @media (prefers-reduced-motion:reduce){
+    .visual-media, .flow-tray, .signal, .scan-bar, .glow-pulse, .type-line,
+    .figure-bob, .blink, .tap-ripple, .tech-figure, .tech-check{animation:none!important;}
+    .draw{transition:none;stroke-dashoffset:0;}
+  }
+  .visual-text p{color:var(--ink-soft);font-size:14.5px;}
+  .led{animation:pulse 2.4s ease-in-out infinite;}
+
+  footer{padding-block:34px;}
+  .footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
+  .footer-inner p{font-size:12.5px;color:var(--ink-faint);}
+</style>
+<link rel="stylesheet" href="refinements.css">
+<link rel="stylesheet" href="modern.css">
+<link rel="stylesheet" href="solution.css">
+<link rel="preload" as="image" href="assets/home-datacentre.png">
+</head>
+<body>
+<a class="skip-link" href="#services">Skip to services</a>
+<nav class="nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="brand" href="#home" aria-label="Capital Group home">
+      <span class="brand-logo-wrap"><img class="brand-logo" src="assets/capital-group.png" alt="Capital Group" width="2172" height="724"></span>
+      <small class="brand-sub">Lesotho · IT Infrastructure</small>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Open navigation"><span></span><span></span></button><div class="nav-links" id="primary-navigation">
+      <a href="#about">About</a>
+      <details class="services-dropdown"><summary>What We Do <span aria-hidden="true">⌄</span></summary><div class="services-dropdown-panel"><a class="services-overview" href="#what-we-do">Explore all services <span aria-hidden="true">↗</span></a><a href="#mod-01"><span class="service-number">01</span>Data Centre Infrastructure</a><a href="#mod-02"><span class="service-number">02</span>Cloud Services</a><a href="#mod-03"><span class="service-number">03</span>Virtualisation &amp; Enterprise Apps</a><a href="#mod-04"><span class="service-number">04</span>Networking &amp; Connectivity</a><a href="#mod-05"><span class="service-number">05</span>End-User Devices</a><a href="#mod-06"><span class="service-number">06</span>Server &amp; Storage</a><a href="#mod-07"><span class="service-number">07</span>Power &amp; Cooling</a><a href="#mod-08"><span class="service-number">08</span>Alarms &amp; CCTV</a><a href="#mod-09"><span class="service-number">09</span>Software Development</a><a href="#mod-10"><span class="service-number">10</span>IT Consultancy</a><a href="#mod-11"><span class="service-number">11</span>Sales &amp; Repairs</a><a href="#mod-12"><span class="service-number">12</span>Managed IT &amp; Maintenance</a></div></details>
+      <a href="#services">Services</a>
+      
+      
+      
+      <a href="#track-record">Our work</a>
+      <a href="#partners">Partners</a>
+    </div>
+    <details class="cta-menu">
+      <summary class="nav-cta">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="margin-right:2px;vertical-align:-2px;"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 2a8 8 0 0 1 6.9 12l-.3.5.7 2.6-2.7-.7-.5.3A8 8 0 1 1 12 4Zm-3.1 3.9c-.2 0-.5 0-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3 1.8 2.8 4.4 3.9c2.2.9 2.6.7 3.1.7.5-.1 1.6-.6 1.8-1.3.2-.6.2-1.2.2-1.3-.1-.2-.3-.3-.6-.4l-1.8-.9c-.3-.1-.5-.1-.7.1l-.7.9c-.1.2-.3.2-.5.1-.7-.3-1.5-.8-2.1-1.5-.6-.6-1-1.3-1.2-1.7-.1-.2 0-.4.1-.5l.5-.6c.1-.2.2-.4.1-.6l-.9-2.1c-.1-.3-.4-.4-.6-.4Z"/></svg>
+        Get in touch
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" style="margin-left:1px;"><path d="M6 9l6 6 6-6"/></svg>
+      </summary>
+      <div class="cta-menu-panel">
+        <a class="cta-menu-item" href="https://wa.me/233244906925" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 2a8 8 0 0 1 6.9 12l-.3.5.7 2.6-2.7-.7-.5.3A8 8 0 1 1 12 4Zm-3.1 3.9c-.2 0-.5 0-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3 1.8 2.8 4.4 3.9c2.2.9 2.6.7 3.1.7.5-.1 1.6-.6 1.8-1.3.2-.6.2-1.2.2-1.3-.1-.2-.3-.3-.6-.4l-1.8-.9c-.3-.1-.5-.1-.7.1l-.7.9c-.1.2-.3.2-.5.1-.7-.3-1.5-.8-2.1-1.5-.6-.6-1-1.3-1.2-1.7-.1-.2 0-.4.1-.5l.5-.6c.1-.2.2-.4.1-.6l-.9-2.1c-.1-.3-.4-.4-.6-.4Z"/></svg>
+          <span><strong>WhatsApp</strong><small>+233 24 490 6925</small></span>
+        </a>
+        <a class="cta-menu-item" href="mailto:mitchville91@gmail.com">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
+          <span><strong>Email</strong><small>mitchville91@gmail.com</small></span>
+        </a>
+      </div>
+    </details>
+  </div>
+</nav>
+<div class="motion-toolbar"><button id="motion-toggle" type="button" aria-pressed="false">Pause animations</button></div>
+
+<header class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-layout"><div class="hero-copy"><span class="hero-tag"><span class="dot"></span> YOUR TECHNOLOGY. OUR EXPERTISE.</span>
+    <h1 class="hero-title reveal in">The foundation<br>for your <em>digital future.</em></h1>
+    <p class="hero-sub reveal in">From data centre design to cloud and managed IT, we build the reliable technology your business needs to move forward. Based in Lesotho. Connected to your ambitions.</p>
+    <div class="hero-ctas reveal in">
+      <a class="btn btn-primary" href="#build-solution">Let’s build your solution <span aria-hidden="true">↗</span></a>
+      <a class="btn btn-ghost" href="#what-we-do">Explore our services <span aria-hidden="true">↓</span></a>
+    </div>
+    </div><div class="hero-note"><span class="note-index">01 / BUILT FOR BUSINESS</span><h2>Infrastructure that<br>moves you forward.</h2><p>Data centres · Cloud · Connectivity</p><a href="#what-we-do">Discover our capabilities <span aria-hidden="true">↗</span></a></div></div><div class="hero-stats reveal in">
+      <div class="hero-stat"><div class="n">3</div><div class="l">Cloud platforms — Azure, AWS, GCP</div></div>
+      <div class="hero-stat"><div class="n">12</div><div class="l">Core service disciplines</div></div>
+      <div class="hero-stat"><div class="n">6</div><div class="l">Industry sectors served</div></div>
+      <div class="hero-stat"><div class="n">24/7</div><div class="l">Support options available</div></div>
+    </div>
+  </div>
+</header>
+<section id="what-we-do">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">What We Do</span>
+      <h2>Twelve disciplines. One call.</h2>
+      <p>Everything your technology needs, from the first blueprint to everyday support. Explore a service to see how we can help.</p>
+    </div>
+    <div class="menu-grid reveal">
+      <a class="menu-tile" href="#mod-01"><div class="mt-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="6" rx="1.5"/><rect x="3" y="15" width="18" height="6" rx="1.5"/></svg></div><span class="mt-code">01</span><span class="mt-title">Data Centre Infrastructure</span></a>
+      <a class="menu-tile" href="#mod-02"><div class="mt-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 18a4 4 0 0 1-1-7.9A5 5 0 0 1 15 8a4.5 4.5 0 0 1 1 8.9"/></svg></div><span class="mt-code">02</span><span class="mt-title">Cloud Services</span></a>
+      <a class="menu-tile" href="#mod-03"><div class="mt-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="7" height="7" rx="1.2"/><rect x="13" y="4" width="7" height="7" rx="1.2"/><rect x="4" y="13" width="7" height="7" rx="1.2"/><rect x="13" y="13" width="7" height="7" rx="1.2"/></svg></div><span class="mt-code">03</span><span class="mt-title">Virtualisation &amp; Enterprise Apps</span></a>
+      <a class="menu-tile" href="#mod-04"><div class="mt-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="5" cy="12" r="2.2"/><circle cx="19" cy="5" r="2.2"/><circle cx="19" cy="19" r="2.2"/><path d="M7 12h6M13 12l4-5.5M13 12l4 5.5"/></svg></div><span class="mt-code">04</span><span class="mt-title">Networking &amp; Connectivity</span></a>
+      <a class="menu-tile" href="#mod-05"><div class="mt-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="12" rx="1.5"/><line x1="8" y1="20" x2="16" y2="20"/><line x1="12" y1="16" x2="12" y2="20"/></svg></div><span class="mt-code">05</span><span class="mt-title">End-User Device Lifecycle</span></a>
+      <a class="menu-tile" href="#mod-06"><div class="mt-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h10"/><circle cx="19" cy="17" r="2"/></svg></div><span class="mt-code">06</span><span class="mt-title">Server &amp; Storage Consulting</span></a>
+      <a class="menu-tile" href="#mod-07"><div class="mt-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg></div><span class="mt-code">07</span><span class="mt-title">Power &amp; Precision Cooling</span></a>
+      <a class="menu-tile" href="#mod-08"><div class="mt-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 4 6v6c0 5 3.4 8.4 8 9 4.6-.6 8-4 8-9V6l-8-3Z"/></svg></div><span class="mt-code">08</span><span class="mt-title">Security: Alarms &amp; CCTV</span></a>
+      <a class="menu-tile" href="#mod-09"><div class="mt-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 9 4 12l4 3M16 9l4 3-4 3M13 6l-2 12"/></svg></div><span class="mt-code">09</span><span class="mt-title">Software Development</span></a>
+      <a class="menu-tile" href="#mod-10"><div class="mt-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></div><span class="mt-code">10</span><span class="mt-title">Business Analysis &amp; Consultancy</span></a>
+      <a class="menu-tile" href="#mod-11"><div class="mt-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14.7 6.3a1 1 0 0 0 1.4 0l1.6-1.6a1 1 0 0 1 1.4 0l1.2 1.2a1 1 0 0 1 0 1.4l-1.6 1.6a1 1 0 0 0 0 1.4l.6.6a1 1 0 0 1 0 1.4L9 22l-5-5 9.7-9.7a1 1 0 0 1 1.4 0l.6.6a1 1 0 0 0 0-1.4Z"/></svg></div><span class="mt-code">11</span><span class="mt-title">Sales, Repairs &amp; Expertise</span></a>
+      <a class="menu-tile" href="#mod-12"><div class="mt-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 8v4l3 2"/><circle cx="12" cy="12" r="9"/></svg></div><span class="mt-code">12</span><span class="mt-title">Managed IT &amp; Maintenance</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="visual-band">
+  <div class="visual-inner">
+    <div class="visual-media reveal"><svg class="human-scene" viewBox="0 0 550 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Engineers inspecting data centre servers"><circle cx="278" cy="155" r="137" fill="#d9efec"/><path d="M43 284H510" stroke="#bdd8d6" stroke-width="2"/><g transform="translate(195 71)"><rect width="94" height="205" rx="10" fill="#18334b"/><path d="M82 8v187" stroke="#31556a" stroke-width="2"/><g transform="translate(10 16)"><rect width="66" height="22" rx="4" fill="#284a60"/><path d="M8 8h25M8 13h20" stroke="#7294a6" stroke-width="2"/><circle class="server-light" style="animation-delay:0s" cx="56" cy="11" r="3" fill="#63e5c3"/></g><g transform="translate(10 45)"><rect width="66" height="22" rx="4" fill="#284a60"/><path d="M8 8h25M8 13h20" stroke="#7294a6" stroke-width="2"/><circle class="server-light" style="animation-delay:0.25s" cx="56" cy="11" r="3" fill="#63e5c3"/></g><g transform="translate(10 74)"><rect width="66" height="22" rx="4" fill="#284a60"/><path d="M8 8h25M8 13h20" stroke="#7294a6" stroke-width="2"/><circle class="server-light" style="animation-delay:0.5s" cx="56" cy="11" r="3" fill="#63e5c3"/></g><g transform="translate(10 103)"><rect width="66" height="22" rx="4" fill="#284a60"/><path d="M8 8h25M8 13h20" stroke="#7294a6" stroke-width="2"/><circle class="server-light" style="animation-delay:0.75s" cx="56" cy="11" r="3" fill="#63e5c3"/></g><g transform="translate(10 132)"><rect width="66" height="22" rx="4" fill="#284a60"/><path d="M8 8h25M8 13h20" stroke="#7294a6" stroke-width="2"/><circle class="server-light" style="animation-delay:1s" cx="56" cy="11" r="3" fill="#63e5c3"/></g><g transform="translate(10 161)"><rect width="66" height="22" rx="4" fill="#284a60"/><path d="M8 8h25M8 13h20" stroke="#7294a6" stroke-width="2"/><circle class="server-light" style="animation-delay:1.25s" cx="56" cy="11" r="3" fill="#63e5c3"/></g></g><g transform="translate(301 71)"><rect width="94" height="205" rx="10" fill="#18334b"/><path d="M82 8v187" stroke="#31556a" stroke-width="2"/><g transform="translate(10 16)"><rect width="66" height="22" rx="4" fill="#284a60"/><path d="M8 8h25M8 13h20" stroke="#7294a6" stroke-width="2"/><circle class="server-light" style="animation-delay:0s" cx="56" cy="11" r="3" fill="#63e5c3"/></g><g transform="translate(10 45)"><rect width="66" height="22" rx="4" fill="#284a60"/><path d="M8 8h25M8 13h20" stroke="#7294a6" stroke-width="2"/><circle class="server-light" style="animation-delay:0.25s" cx="56" cy="11" r="3" fill="#63e5c3"/></g><g transform="translate(10 74)"><rect width="66" height="22" rx="4" fill="#284a60"/><path d="M8 8h25M8 13h20" stroke="#7294a6" stroke-width="2"/><circle class="server-light" style="animation-delay:0.5s" cx="56" cy="11" r="3" fill="#63e5c3"/></g><g transform="translate(10 103)"><rect width="66" height="22" rx="4" fill="#284a60"/><path d="M8 8h25M8 13h20" stroke="#7294a6" stroke-width="2"/><circle class="server-light" style="animation-delay:0.75s" cx="56" cy="11" r="3" fill="#63e5c3"/></g><g transform="translate(10 132)"><rect width="66" height="22" rx="4" fill="#284a60"/><path d="M8 8h25M8 13h20" stroke="#7294a6" stroke-width="2"/><circle class="server-light" style="animation-delay:1s" cx="56" cy="11" r="3" fill="#63e5c3"/></g><g transform="translate(10 161)"><rect width="66" height="22" rx="4" fill="#284a60"/><path d="M8 8h25M8 13h20" stroke="#7294a6" stroke-width="2"/><circle class="server-light" style="animation-delay:1.25s" cx="56" cy="11" r="3" fill="#63e5c3"/></g></g><path class="data-flow" d="M236 52V28H452V120" stroke="#19ab9f" stroke-width="3" stroke-dasharray="5 8" fill="none"/><g transform="translate(142 114) scale(0.94 0.94)"><g class="person-breathe">
+<ellipse cx="0" cy="183" rx="36" ry="6" fill="#132c43" opacity=".12"/>
+
+<path d="M-19 100L-17 173M15 100L22 173" stroke="#233d58" stroke-width="18" stroke-linecap="round"/>
+<path d="M-24 177h24M16 177h26" stroke="#102238" stroke-width="10" stroke-linecap="round"/>
+<path d="M-26 46Q-26 22-9 20H10Q28 24 28 47L22 111H-23Z" fill="#08a89a"/>
+<path d="M-5 12v14q5 8 11 0V12" fill="#a96645"/>
+<ellipse cy="-5" rx="19" ry="24" fill="#a96645"/>
+<path d="M-20-7Q-27-37 1-34Q26-33 20-9L13-17Q-4-12-14-21L-16-5Z" fill="#172c43"/>
+<g class="human-eyes"><circle cx="-6" cy="-5" r="1.6" fill="#142235"/><circle cx="9" cy="-5" r="1.6" fill="#142235"/></g>
+<path d="M0 1l-2 4h4M-4 10q6 4 11-1" stroke="#653e31" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+<path d="M-7 28L0 42l9-14" fill="#e3fff7"/><path d="M0 43v34" stroke="#d3fff5" stroke-width="2"/><rect x="-7" y="72" width="15" height="19" rx="3" fill="#f5fffc"/><rect x="-3" y="77" width="7" height="3" fill="#7ba4ae"/>
+<path d="M-23 40L-36 80-16 91" fill="none" stroke="#08a89a" stroke-width="15" stroke-linecap="round"/><path d="M-21 88l11 5" stroke="#a96645" stroke-width="10" stroke-linecap="round"/>
+<g class="human-arm"><path d="M23 40L41 66 65 49" fill="none" stroke="#08a89a" stroke-width="15" stroke-linecap="round"/><path d="M59 54l14-12" stroke="#a96645" stroke-width="10" stroke-linecap="round"/><path d="M71 44l3-7" stroke="#a96645" stroke-width="5" stroke-linecap="round"/></g>
+</g></g><g transform="translate(440 139) scale(-0.79 0.79)"><g class="person-breathe">
+<ellipse cx="0" cy="183" rx="36" ry="6" fill="#132c43" opacity=".12"/>
+<path d="M-22 8Q-28-35 0-34Q32-34 25 12L20 35H-24Z" fill="#172c43"/>
+<path d="M-19 100L-17 173M15 100L22 173" stroke="#233d58" stroke-width="18" stroke-linecap="round"/>
+<path d="M-24 177h24M16 177h26" stroke="#102238" stroke-width="10" stroke-linecap="round"/>
+<path d="M-26 46Q-26 22-9 20H10Q28 24 28 47L22 111H-23Z" fill="#d5ad70"/>
+<path d="M-5 12v14q5 8 11 0V12" fill="#734632"/>
+<ellipse cy="-5" rx="19" ry="24" fill="#734632"/>
+<path d="M-20-7Q-27-37 1-34Q26-33 20-9L13-17Q-4-12-14-21L-16-5Z" fill="#172c43"/>
+<g class="human-eyes"><circle cx="-6" cy="-5" r="1.6" fill="#142235"/><circle cx="9" cy="-5" r="1.6" fill="#142235"/></g>
+<path d="M0 1l-2 4h4M-4 10q6 4 11-1" stroke="#653e31" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+<path d="M-7 28L0 42l9-14" fill="#e3fff7"/><path d="M0 43v34" stroke="#d3fff5" stroke-width="2"/><rect x="-7" y="72" width="15" height="19" rx="3" fill="#f5fffc"/><rect x="-3" y="77" width="7" height="3" fill="#7ba4ae"/>
+<path d="M-23 40L-36 80-16 91" fill="none" stroke="#d5ad70" stroke-width="15" stroke-linecap="round"/><path d="M-21 88l11 5" stroke="#734632" stroke-width="10" stroke-linecap="round"/>
+<g class="human-arm"><path d="M23 40L41 66 65 49" fill="none" stroke="#d5ad70" stroke-width="15" stroke-linecap="round"/><path d="M59 54l14-12" stroke="#734632" stroke-width="10" stroke-linecap="round"/><path d="M71 44l3-7" stroke="#734632" stroke-width="5" stroke-linecap="round"/></g>
+</g></g><g class="cloud-float"><rect x="362" y="25" width="112" height="47" rx="12" fill="#fff" stroke="#c6dedd"/><circle cx="384" cy="49" r="10" fill="#dbf6ed"/><path d="m379 49 4 4 7-9" fill="none" stroke="#089b88" stroke-width="2"/><path d="M402 43h54M402 52h37" stroke="#79949f" stroke-width="4" stroke-linecap="round"/></g></svg>
+    </div>
+    <div class="visual-text reveal">
+      <span class="eyebrow">Inside The Facility</span>
+      <h3>Data centres built to a standard, not a budget.</h3>
+      <p>Fire suppression, biometric access control, raised floors, structured cabling, and precision cooling — every layer of the physical facility is engineered before a single server is racked, so uptime is designed in from the floor up.</p>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap two-col">
+    <div class="reveal">
+      <span class="eyebrow">Company Overview</span>
+      <h2 style="margin-top:14px;font-size:clamp(24px,3.2vw,32px);">Built so businesses of every size get enterprise-grade infrastructure.</h2>
+      <p class="lede" style="margin-top:18px;">Capital Group of Companies Lesotho is an information technology solutions provider specialising in enterprise IT infrastructure, data centre design, cloud and virtualisation services, networking, cybersecurity, and managed IT support. We serve small, micro, and medium enterprises, public sector institutions, and large corporates — locally and internationally.</p>
+      <p style="color:var(--ink-soft);font-size:14.5px;margin-top:14px;">Our team has delivered infrastructure, virtualisation, and communications projects for government agencies, financial institutions, utilities, and private-sector clients across multiple countries — a track record built on real, delivered outcomes rather than promises. Our approach combines deep technical expertise with a customer-first mindset: we design solutions around each client's real business needs rather than offering one-size-fits-all technology.</p>
+    </div>
+    <div class="reveal">
+      <div class="diagram card" style="display:flex;align-items:center;justify-content:center;">
+        <svg viewBox="0 0 200 200">
+          <g stroke="var(--line-strong)" stroke-width="1" fill="none">
+            <line x1="100" y1="100" x2="40" y2="45"/>
+            <line x1="100" y1="100" x2="160" y2="45"/>
+            <line x1="100" y1="100" x2="30" y2="130"/>
+            <line x1="100" y1="100" x2="170" y2="130"/>
+            <line x1="100" y1="100" x2="100" y2="170"/>
+          </g>
+          <circle cx="100" cy="100" r="16" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="2"/>
+          <path class="draw" d="M92 100l6 6 12-13" stroke="var(--accent-strong)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <g fill="var(--surface)" stroke="var(--line-strong)" stroke-width="1.5">
+            <circle cx="40" cy="45" r="9"/><circle cx="160" cy="45" r="9"/>
+            <circle cx="30" cy="130" r="9"/><circle cx="170" cy="130" r="9"/>
+            <circle cx="100" cy="170" r="9"/>
+          </g>
+          <circle class="signal" r="3" fill="var(--accent)" style="offset-path:path('M100 100 L40 45');animation:travel 2.2s linear infinite;animation-delay:0s;"/>
+          <circle class="signal" r="3" fill="var(--accent)" style="offset-path:path('M100 100 L160 45');animation:travel 2.2s linear infinite;animation-delay:.5s;"/>
+          <circle class="signal" r="3" fill="var(--accent)" style="offset-path:path('M100 100 L30 130');animation:travel 2.2s linear infinite;animation-delay:1s;"/>
+          <circle class="signal" r="3" fill="var(--accent)" style="offset-path:path('M100 100 L170 130');animation:travel 2.2s linear infinite;animation-delay:1.5s;"/>
+          <circle class="signal" r="3" fill="var(--accent)" style="offset-path:path('M100 100 L100 170');animation:travel 2.2s linear infinite;animation-delay:.3s;"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="vm-grid">
+      <div class="card vm-card reveal">
+        <svg class="icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+        <h3>Our Vision</h3>
+        <p>To be a market-oriented, profitable, competitive, and reliable partner in helping our customers achieve their goals through open, honest, and dependable technology solutions — leading with integrity, taking on complex challenges, and giving credit where it is due.</p>
+      </div>
+      <div class="card vm-card reveal">
+        <svg class="icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l3 7h7l-5.5 4.2L18.5 21 12 16.8 5.5 21l2-7.8L2 9h7z"/></svg>
+        <h3>Our Mission</h3>
+        <p>To deliver accurate, reliable IT solutions that exceed client expectations, within the best possible turnaround time, without compromising on quality of work or business ethics.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:44px;">
+      <span class="eyebrow">Core Values</span>
+      <div class="values-grid" style="margin-top:16px;">
+        <div class="card value-card reveal"><div class="num mono">01</div><h4>Reliability</h4><p>Solutions and support our clients can depend on.</p></div>
+        <div class="card value-card reveal"><div class="num mono">02</div><h4>Integrity</h4><p>Open and honest engagement in every client relationship.</p></div>
+        <div class="card value-card reveal"><div class="num mono">03</div><h4>Quality</h4><p>High standards of workmanship, without shortcuts.</p></div>
+        <div class="card value-card reveal"><div class="num mono">04</div><h4>Customer-centricity</h4><p>Designing around each client's actual needs.</p></div>
+        <div class="card value-card reveal"><div class="num mono">05</div><h4>Innovation</h4><p>Continuously updating our skills and offerings to match evolving technology.</p></div>
+        <div class="card value-card reveal"><div class="num mono">06</div><h4>Accountability</h4><p>On-time, in-full delivery, and clear performance reporting.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">In Detail</span>
+      <h2>A full infrastructure stack, under one provider.</h2>
+      <p>From the physical data centre floor to multi-cloud and end-user devices — open a module for the full breakdown.</p>
+    </div>
+
+    <div class="modules">
+
+      <details class="module reveal" id="mod-01" open>
+        <summary>
+          <div class="mod-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="6" rx="1.5"/><rect x="3" y="15" width="18" height="6" rx="1.5"/><line x1="7" y1="6" x2="7" y2="6"/><line x1="7" y1="18" x2="7" y2="18"/></svg></div>
+          <div class="mod-head">
+            <div class="mod-code">MODULE 01</div>
+            <div class="mod-title">Enterprise IT Infrastructure &amp; Data Centre Services</div>
+            <div class="mod-blurb">Complete data centre solutions across three layers: physical, active equipment, and advanced professional services.</div>
+          </div>
+          <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <div class="mod-body">
+          <div class="mod-group-label">Physical Infrastructure</div>
+          <ul>
+            <li>Fire detection and suppression systems</li>
+            <li>Physical access control — biometric, facial recognition, card-based</li>
+            <li>IP-based CCTV and surveillance systems</li>
+            <li>Raised access floors and ceilings, environmental monitoring</li>
+            <li>Structured cabling (fibre and copper)</li>
+          </ul>
+          <div class="mod-group-label">Active Equipment</div>
+          <ul>
+            <li>Enterprise servers and storage — NAS, SAN, SMB/NFS, block/file/object</li>
+            <li>Disk- and tape-based backup, including deduplication and VTL</li>
+            <li>Core networking — routers, switches, load balancers</li>
+            <li>Next-generation firewalls and IPS, built around zero-trust principles</li>
+            <li>UPS, automatic voltage regulators and intelligent PDUs, energy-efficient designs</li>
+            <li>Precision cooling — in-row, in-room, and floor-standing</li>
+          </ul>
+          <div class="mod-group-label">Advanced Professional Services</div>
+          <ul>
+            <li>Server consolidation and virtualisation — Hyper-V, VMware vSphere/vCenter</li>
+            <li>Hybrid and private cloud infrastructure consulting</li>
+            <li>Storage optimisation, consolidation, disaster recovery/replication</li>
+            <li>Exchange, SharePoint and Active Directory design — on-prem and via Microsoft 365</li>
+            <li>Desktop and application virtualisation — Citrix, VMware Horizon</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="module reveal" id="mod-02">
+        <summary>
+          <div class="mod-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 18a4 4 0 0 1-1-7.9A5 5 0 0 1 15 8a4.5 4.5 0 0 1 1 8.9"/></svg></div>
+          <div class="mod-head">
+            <div class="mod-code">MODULE 02</div>
+            <div class="mod-title">Cloud Services</div>
+            <div class="mod-blurb">Planning, migrating to, and managing public, private, and hybrid cloud environments.</div>
+          </div>
+          <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <div class="mod-body">
+          <ul>
+            <li>Microsoft Azure — VMs, Azure Virtual Desktop, Azure SQL, Microsoft 365 integration</li>
+            <li>Amazon Web Services (AWS) — cloud hosting, storage, infrastructure migration</li>
+            <li>Google Cloud Platform (GCP) — cloud infrastructure and workload deployment</li>
+            <li>Cloud migration strategy — lift-and-shift and hybrid-cloud approaches</li>
+            <li>Cloud backup, disaster recovery, and cost-optimisation reviews</li>
+            <li>Ongoing cloud management and support</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="module reveal" id="mod-03">
+        <summary>
+          <div class="mod-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="7" height="7" rx="1.2"/><rect x="13" y="4" width="7" height="7" rx="1.2"/><rect x="4" y="13" width="7" height="7" rx="1.2"/><rect x="13" y="13" width="7" height="7" rx="1.2"/></svg></div>
+          <div class="mod-head">
+            <div class="mod-code">MODULE 03</div>
+            <div class="mod-title">Virtualisation &amp; Enterprise Applications</div>
+            <div class="mod-blurb">Modernising core business applications and on-premises infrastructure.</div>
+          </div>
+          <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <div class="mod-body">
+          <ul>
+            <li>Microsoft Exchange Server and Exchange Online (Microsoft 365)</li>
+            <li>Microsoft SharePoint Server and SharePoint Online</li>
+            <li>Microsoft SQL Server and cloud database platforms</li>
+            <li>Microsoft Hyper-V virtualisation</li>
+            <li>Remote Desktop Services and Azure Virtual Desktop</li>
+            <li>VMware vSphere, vCenter, and Horizon (VDI)</li>
+            <li>Private and hybrid cloud platforms and orchestration</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="module reveal" id="mod-04">
+        <summary>
+          <div class="mod-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="5" cy="12" r="2.2"/><circle cx="19" cy="5" r="2.2"/><circle cx="19" cy="19" r="2.2"/><path d="M7 12h6M13 12l4-5.5M13 12l4 5.5"/></svg></div>
+          <div class="mod-head">
+            <div class="mod-code">MODULE 04</div>
+            <div class="mod-title">Networking &amp; Connectivity</div>
+            <div class="mod-blurb">LAN design, implementation and certification, extending to WAN integration.</div>
+          </div>
+          <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <div class="mod-body">
+          <ul>
+            <li>Wired and wireless (Wi-Fi) network design</li>
+            <li>Structured cabling (fibre and copper)</li>
+            <li>Next-generation firewalls and intrusion prevention</li>
+            <li>Load balancers, routers, and switches</li>
+            <li>Network security aligned with zero-trust principles</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="module reveal" id="mod-05">
+        <summary>
+          <div class="mod-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="12" rx="1.5"/><line x1="8" y1="20" x2="16" y2="20"/><line x1="12" y1="16" x2="12" y2="20"/></svg></div>
+          <div class="mod-head">
+            <div class="mod-code">MODULE 05</div>
+            <div class="mod-title">End-User &amp; Client Device Lifecycle</div>
+            <div class="mod-blurb">Selection, deployment, and ongoing maintenance of end-user computing.</div>
+          </div>
+          <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <div class="mod-body">
+          <ul>
+            <li>Business and enterprise desktops</li>
+            <li>Business and enterprise notebook computers</li>
+            <li>Workstations (HP and Dell)</li>
+            <li>Modern business tablets and mobile computing devices</li>
+            <li>Microsoft 365 collaboration — Exchange Online and SharePoint Online integration</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="module reveal" id="mod-06">
+        <summary>
+          <div class="mod-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h10"/><circle cx="19" cy="17" r="2"/></svg></div>
+          <div class="mod-head">
+            <div class="mod-code">MODULE 06</div>
+            <div class="mod-title">Server &amp; Storage Solutions Consulting</div>
+            <div class="mod-blurb">Pre-sales through installation, configuration, and maintenance.</div>
+          </div>
+          <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <div class="mod-body">
+          <ul>
+            <li>Network Attached Storage — NFS, SMB/CIFS, HTTP, WebDAV, FTP</li>
+            <li>Storage Area Networks — iSCSI, Fibre Channel, FCoE</li>
+            <li>Disk-based backup with deduplication, and tape-based backup</li>
+            <li>Storage replication and disaster recovery</li>
+            <li>Storage integration for virtualised and cloud environments</li>
+            <li>Storage integration for SQL Server and Exchange</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="module reveal" id="mod-07">
+        <summary>
+          <div class="mod-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg></div>
+          <div class="mod-head">
+            <div class="mod-code">MODULE 07</div>
+            <div class="mod-title">Power &amp; Precision Cooling</div>
+            <div class="mod-blurb">Clean, stable power and precision cooling for comms closets, server rooms and data centres.</div>
+          </div>
+          <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <div class="mod-body">
+          <ul>
+            <li>Power design, implementation, and consultation with a focus on energy-efficient equipment</li>
+            <li>Alternate power supply partnerships (e.g. generators) for complete turnkey solutions</li>
+            <li>In-row, in-room, and floor-standing precision cooling</li>
+            <li>Delivered with specialist partners for refrigeration piping and installation</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="module reveal" id="mod-08">
+        <summary>
+          <div class="mod-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 4 6v6c0 5 3.4 8.4 8 9 4.6-.6 8-4 8-9V6l-8-3Z"/></svg></div>
+          <div class="mod-head">
+            <div class="mod-code">MODULE 08</div>
+            <div class="mod-title">Security Systems: Alarms &amp; CCTV</div>
+            <div class="mod-blurb">Intruder alarms and camera systems for homes and businesses.</div>
+          </div>
+          <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <div class="mod-body">
+          <ul>
+            <li>Hardwired or wireless intruder alarm systems with on-site alarm and mobile/security-company alerts</li>
+            <li>Wireless and wired CCTV camera systems</li>
+            <li>Control room setups</li>
+            <li>Network video recording with local and remote viewing</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="module reveal" id="mod-09">
+        <summary>
+          <div class="mod-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 9 4 12l4 3M16 9l4 3-4 3M13 6l-2 12"/></svg></div>
+          <div class="mod-head">
+            <div class="mod-code">MODULE 09</div>
+            <div class="mod-title">Software Development &amp; Digital Solutions</div>
+            <div class="mod-blurb">Mobile, web and desktop applications, plus messaging solutions.</div>
+          </div>
+          <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <div class="mod-body">
+          <ul>
+            <li>Mobile applications — native and cross-platform, fleet management and tracking systems, custom business apps</li>
+            <li>Web and desktop application development, including Point-of-Sale systems</li>
+            <li>Web hosting and domain registration</li>
+            <li>Tiered support SLAs — 1hr critical, 2hr medium, 4hr low-priority response</li>
+            <li>SMS and messaging-gateway solutions</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="module reveal" id="mod-10">
+        <summary>
+          <div class="mod-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></div>
+          <div class="mod-head">
+            <div class="mod-code">MODULE 10</div>
+            <div class="mod-title">Business Analysis &amp; IT Consultancy</div>
+            <div class="mod-blurb">Structured analysis guiding clients through an iterative solution-development approach.</div>
+          </div>
+          <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <div class="mod-body">
+          <ul>
+            <li>Identifying strengths, weaknesses, and opportunities through structured business analysis</li>
+            <li>Requirements analysis and design</li>
+            <li>Implementation, testing, and continuous improvement</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="module reveal" id="mod-11">
+        <summary>
+          <div class="mod-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14.7 6.3a1 1 0 0 0 1.4 0l1.6-1.6a1 1 0 0 1 1.4 0l1.2 1.2a1 1 0 0 1 0 1.4l-1.6 1.6a1 1 0 0 0 0 1.4l.6.6a1 1 0 0 1 0 1.4L9 22l-5-5 9.7-9.7a1 1 0 0 1 1.4 0l.6.6a1 1 0 0 0 0-1.4Z"/></svg></div>
+          <div class="mod-head">
+            <div class="mod-code">MODULE 11</div>
+            <div class="mod-title">Sales, Repairs &amp; Technical Expertise</div>
+            <div class="mod-blurb">Hardware sales and repair, backed by a multi-platform technical team.</div>
+          </div>
+          <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <div class="mod-body">
+          <ul>
+            <li>Sales and repair of desktops, servers, laptops, printers, routers, switches, smartphones, tablets, monitors, and peripherals</li>
+            <li>Technical team experienced across Microsoft, Linux, UNIX, and Cisco-based systems</li>
+            <li>Hardware expertise in Dell, HP, and IBM equipment</li>
+            <li>Regular technician refresher training and a well-stocked spare parts inventory</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="module reveal" id="mod-12">
+        <summary>
+          <div class="mod-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 8v4l3 2"/><circle cx="12" cy="12" r="9"/></svg></div>
+          <div class="mod-head">
+            <div class="mod-code">MODULE 12</div>
+            <div class="mod-title">Managed IT &amp; Maintenance Services</div>
+            <div class="mod-blurb">Onsite support and break/fix maintenance, with standard performance reporting.</div>
+          </div>
+          <svg class="chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </summary>
+        <div class="mod-body">
+          <div class="mod-group-label">Onsite Support</div>
+          <ul>
+            <li>Certified, trained technicians available at customer sites</li>
+            <li>Installation and de-installation of hardware, software and peripherals</li>
+            <li>Equipment upgrades, configuration, and physical relocation</li>
+            <li>Software installation, upgrades and patching — in and out of warranty</li>
+            <li>Standard monthly reporting — SLA performance, root cause and trend analysis</li>
+          </ul>
+          <div class="mod-group-label">Break/Fix Maintenance</div>
+          <ul>
+            <li>24/7/365 support options</li>
+            <li>Vendor-supplied and customer-owned equipment, in and out of warranty</li>
+            <li>Service requests accepted via email; on-site troubleshooting with sparing-pool options</li>
+            <li>Nationwide coverage with certified technicians</li>
+            <li>Standard image reload and data transfer for inoperable units</li>
+          </ul>
+        </div>
+      </details>
+
+    </div>
+
+    <div class="highlights">
+      <div class="card hl-card reveal">
+        <h4>Project Management</h4>
+        <p>Delivering infrastructure projects across multiple African countries with a customer-centred approach, quality standards, on-time-in-full (OTIF) delivery, and strong value for money.</p>
+      </div>
+      <div class="card hl-card reveal">
+        <h4>Training Services</h4>
+        <p>Internationally certified trainers give clients first-class operational knowledge of the products and services we supply, to maximise return on technology investment.</p>
+      </div>
+      <div class="card hl-card reveal">
+        <h4>Customer Service</h4>
+        <p>Built to stay attuned to clients' evolving needs as their operations grow more sophisticated — shaping how we innovate and support over time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="visual-band visual-reverse">
+  <div class="visual-inner">
+    <div class="visual-media reveal"><svg class="human-scene" viewBox="0 0 550 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Network engineer testing connected systems"><circle cx="260" cy="155" r="132" fill="#deedf5"/><rect x="197" y="44" width="235" height="145" rx="13" fill="#fff" stroke="#bdd6df" stroke-width="2"/><path d="M215 69h50" stroke="#223e58" stroke-width="5" stroke-linecap="round"/><g stroke="#96bac5" stroke-width="2" fill="none"><path d="M315 114L239 93M315 114L393 88M315 114L245 160M315 114L390 158"/></g><g fill="#deeee9" stroke="#0da595" stroke-width="2"><circle cx="315" cy="114" r="21"/><circle cx="239" cy="93" r="10"/><circle cx="393" cy="88" r="10"/><circle cx="245" cy="160" r="10"/><circle cx="390" cy="158" r="10"/></g><path class="data-flow" d="M239 93L315 114 390 158" stroke="#0d9d91" stroke-width="4" stroke-dasharray="4 12" fill="none"/><path d="M286 190v21h60v-21" fill="#19344c"/><g transform="translate(131 114) scale(0.94 0.94)"><g class="person-breathe">
+<ellipse cx="0" cy="183" rx="36" ry="6" fill="#132c43" opacity=".12"/>
+
+<path d="M-19 100L-17 173M15 100L22 173" stroke="#233d58" stroke-width="18" stroke-linecap="round"/>
+<path d="M-24 177h24M16 177h26" stroke="#102238" stroke-width="10" stroke-linecap="round"/>
+<path d="M-26 46Q-26 22-9 20H10Q28 24 28 47L22 111H-23Z" fill="#327c9e"/>
+<path d="M-5 12v14q5 8 11 0V12" fill="#bc825d"/>
+<ellipse cy="-5" rx="19" ry="24" fill="#bc825d"/>
+<path d="M-20-7Q-27-37 1-34Q26-33 20-9L13-17Q-4-12-14-21L-16-5Z" fill="#172c43"/>
+<g class="human-eyes"><circle cx="-6" cy="-5" r="1.6" fill="#142235"/><circle cx="9" cy="-5" r="1.6" fill="#142235"/></g>
+<path d="M0 1l-2 4h4M-4 10q6 4 11-1" stroke="#653e31" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+<path d="M-7 28L0 42l9-14" fill="#e3fff7"/><path d="M0 43v34" stroke="#d3fff5" stroke-width="2"/><rect x="-7" y="72" width="15" height="19" rx="3" fill="#f5fffc"/><rect x="-3" y="77" width="7" height="3" fill="#7ba4ae"/>
+<path d="M-23 40L-36 80-16 91" fill="none" stroke="#327c9e" stroke-width="15" stroke-linecap="round"/><path d="M-21 88l11 5" stroke="#bc825d" stroke-width="10" stroke-linecap="round"/>
+<g class="human-arm"><path d="M23 40L41 66 65 49" fill="none" stroke="#327c9e" stroke-width="15" stroke-linecap="round"/><path d="M59 54l14-12" stroke="#bc825d" stroke-width="10" stroke-linecap="round"/><path d="M71 44l3-7" stroke="#bc825d" stroke-width="5" stroke-linecap="round"/></g>
+</g></g><rect x="175" y="221" width="293" height="33" rx="7" fill="#1a354f"/><rect x="187" y="231" width="16" height="12" rx="2" fill="#83adaf"/><rect x="212" y="231" width="16" height="12" rx="2" fill="#83adaf"/><rect x="237" y="231" width="16" height="12" rx="2" fill="#83adaf"/><rect x="262" y="231" width="16" height="12" rx="2" fill="#83adaf"/><rect x="287" y="231" width="16" height="12" rx="2" fill="#83adaf"/><rect x="312" y="231" width="16" height="12" rx="2" fill="#83adaf"/><rect x="337" y="231" width="16" height="12" rx="2" fill="#83adaf"/><rect x="362" y="231" width="16" height="12" rx="2" fill="#83adaf"/><rect x="387" y="231" width="16" height="12" rx="2" fill="#83adaf"/><rect x="412" y="231" width="16" height="12" rx="2" fill="#83adaf"/><path class="data-flow" d="M197 245Q177 306 275 291T402 245" stroke="#0baf9f" stroke-width="4" stroke-dasharray="8 6" fill="none"/></svg>
+    </div>
+    <div class="visual-text reveal">
+      <span class="eyebrow">Structured Cabling</span>
+      <h3>Every run labelled, tested, and certified.</h3>
+      <p>Fibre and copper structured cabling designed for LAN, WAN, and data centre environments — terminated cleanly, tested end-to-end, and documented, so faults are found in minutes rather than hours.</p>
+    </div>
+  </div>
+</section>
+
+<section id="industries">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Industry Focus</span>
+      <h2>Trusted across critical sectors.</h2>
+    </div>
+    <div class="industry-grid">
+      <div class="card industry-card reveal">
+        <svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg>
+        <div><h4>Public Sector &amp; Government</h4><p>Revenue authorities, judiciary systems, land administration.</p></div>
+      </div>
+      <div class="card industry-card reveal">
+        <svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="13" rx="1.5"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+        <div><h4>Financial Services</h4><p>Commercial banking infrastructure.</p></div>
+      </div>
+      <div class="card industry-card reveal">
+        <svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg>
+        <div><h4>Energy &amp; Utilities</h4><p>National electricity and petroleum authorities.</p></div>
+      </div>
+      <div class="card industry-card reveal">
+        <svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20h16M6 20V10l-2-2 8-4 8 4-2 2v10"/></svg>
+        <div><h4>Mining</h4><p>Enterprise virtualisation and disaster recovery.</p></div>
+      </div>
+      <div class="card industry-card reveal">
+        <svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5V6a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v13.5M4 19.5h13M4 19.5H2M17 19.5h5M8 8h4M8 12h4"/></svg>
+        <div><h4>Education &amp; Public Admin</h4><p>Manpower development and scholarship secretariats.</p></div>
+      </div>
+      <div class="card industry-card reveal">
+        <svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l1-5h16l1 5M4 9v10a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V9M4 9h16M9 20v-5h6v5"/></svg>
+        <div><h4>Retail &amp; SMMEs</h4><p>Right-sized infrastructure and POS solutions.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="wrap two-col">
+    <div class="reveal">
+      <span class="eyebrow">Why Choose Us</span>
+      <h2 style="margin-top:14px;font-size:clamp(24px,3.2vw,32px);">One provider, the full stack, and a track record to show for it.</h2>
+      <p style="color:var(--ink-soft);margin-top:14px;font-size:14.5px;">Defined, transparent service-level commitments — not vague promises — from a young, motivated organisation continually investing in new skills.</p>
+    </div>
+    <div class="why-list reveal">
+      <div class="why-item"><div class="why-num mono">01</div><p><strong>Full-stack, one provider.</strong> Data centre infrastructure and multi-cloud (Azure, AWS, Google Cloud) through to end-user support, under one roof.</p></div>
+      <div class="why-item"><div class="why-num mono">02</div><p><strong>Qualified technical team.</strong> Ready to advise, support, and resolve issues quickly.</p></div>
+      <div class="why-item"><div class="why-num mono">03</div><p><strong>Proven delivery.</strong> A track record of complex infrastructure and virtualisation projects for government, financial, and utility clients across multiple countries.</p></div>
+      <div class="why-item"><div class="why-num mono">04</div><p><strong>Transparent SLAs.</strong> Defined response and resolution commitments, published below.</p></div>
+      <div class="why-item"><div class="why-num mono">05</div><p><strong>Always current.</strong> A young, motivated organisation continually investing in new skills to keep pace with the industry.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="sla">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Service Level Commitments</span>
+      <h2>Our Commitment to Clients</h2>
+      <p>Response and resolution targets by incident priority.</p>
+    </div>
+    <div class="table-wrap reveal">
+      <table class="sla">
+        <thead><tr><th>Priority</th><th>Response Time</th><th>Resolution Time</th></tr></thead>
+        <tbody>
+          <tr><td><span class="chip crit">Emergency Call-Out</span></td><td class="metric">0–1 hour</td><td class="metric">0–4 hours</td></tr>
+          <tr><td><span class="chip std">Standard Call-Out</span></td><td class="metric">1–2 hours</td><td class="metric">0–3 hours</td></tr>
+          <tr><td><span class="chip low">Low-Priority Incident</span></td><td class="metric">2–4 hours</td><td class="metric">0–7 hours</td></tr>
+          <tr><td><span class="chip rev">Quarterly Maintenance &amp; Review</span></td><td class="metric">End of quarter</td><td class="metric">0–3 days</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="track-record">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Selected Project Experience</span>
+      <h2>Our Track Record</h2>
+      <p>A sample of the infrastructure and virtualisation projects delivered by our team across the region.</p>
+    </div>
+    <div class="timeline reveal">
+      <div class="tl-item"><span class="tl-tag">Ghana · Nov 2018</span><h4>Lands Commission</h4><p>Architected, designed, and implemented Microsoft Exchange Server for the Lands Commission.</p></div>
+      <div class="tl-item"><span class="tl-tag">Togo · Feb 2018</span><h4>Office Togolais des Recettes</h4><p>Designed and implemented the storage and hyper-converged infrastructure underpinning the Togolese tax collection system, including a resilient network backbone and security implementation.</p></div>
+      <div class="tl-item"><span class="tl-tag">Sierra Leone · Nov–Dec 2017</span><h4>Sierra Leone Commercial Bank</h4><p>Designed and deployed infrastructure for a Card Management System, including Linux server clusters for the Oracle database, a hyper-converged platform, and cross-site replication for business continuity.</p></div>
+      <div class="tl-item"><span class="tl-tag">Ghana</span><h4>AngloGold Ashanti</h4><p>Physical-to-virtual (P2V) migration deploying a VMware cluster with enterprise server and storage hardware for production and disaster recovery, with automated cross-site replication.</p></div>
+      <div class="tl-item"><span class="tl-tag">Ghana &amp; UK</span><h4>Ecobank</h4><p>Enterprise storage capacity upgrade and virtual infrastructure memory upgrade to support business continuity and eliminate downtime.</p></div>
+      <div class="tl-item"><span class="tl-tag">Ghana</span><h4>Ghana Gas Company</h4><p>Migration and implementation of Microsoft Exchange Server with an accompanying Active Directory upgrade on a virtualised platform.</p></div>
+      <div class="tl-item"><span class="tl-tag">Ghana</span><h4>Ghana Judiciary Service</h4><p>Deployed a converged, virtualised data centre (production and disaster recovery) supporting a case-management application used nationwide.</p></div>
+      <div class="tl-item"><span class="tl-tag">Ghana</span><h4>Ghana National Petroleum Commission</h4><p>Designed and implemented a virtualised data centre and high-availability storage platform hosting national petroleum data.</p></div>
+      <div class="tl-item"><span class="tl-tag">Ghana</span><h4>Volta River Authority</h4><p>Designed and deployed blade server and storage infrastructure hosting major operational workloads.</p></div>
+      <div class="tl-item"><span class="tl-tag">Lesotho</span><h4>Lesotho Electricity Company</h4><p>Consolidated physical servers onto a clustered, virtualised infrastructure hosting core workloads — messaging, database, and directory services — reducing power, cooling, and management costs.</p></div>
+      <div class="tl-item"><span class="tl-tag">Lesotho</span><h4>National Manpower Development Secretariat (SSMAS)</h4><p>Designed and deployed the full IT infrastructure for the SSMAS student scholarship system, replacing manual data-entry with a resilient, secure architecture.</p></div>
+      <div class="tl-item"><span class="tl-tag">Ghana</span><h4>Spintex Chemist</h4><p>Support and maintenance for Dell servers, desktops, laptops, printers, UPS units, and scanners, plus LAN and surveillance infrastructure.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="partners">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Technology Partners</span>
+      <h2>Backed by the brands our clients already trust.</h2>
+    </div>
+    <div class="partner-wall reveal"><div class="partner-logo-card"><img src="assets/brands/dell.svg" alt="Dell Technologies logo" loading="lazy" width="140" height="56"><span>Dell Technologies</span></div>
+<div class="partner-logo-card"><img src="assets/brands/hp.svg" alt="HP logo" loading="lazy" width="140" height="56"><span>HP</span></div>
+<div class="partner-logo-card"><img src="assets/brands/ibm.svg" alt="IBM logo" loading="lazy" width="140" height="56"><span>IBM</span></div>
+<div class="partner-logo-card"><img src="assets/brands/fujitsu.svg" alt="Fujitsu logo" loading="lazy" width="140" height="56"><span>Fujitsu</span></div>
+<div class="partner-logo-card"><img src="assets/brands/lenovo.svg" alt="Lenovo logo" loading="lazy" width="140" height="56"><span>Lenovo</span></div>
+<div class="partner-logo-card"><img src="assets/brands/toshiba.svg" alt="Toshiba logo" loading="lazy" width="140" height="56"><span>Toshiba</span></div>
+<div class="partner-logo-card"><img src="assets/brands/microsoft.svg" alt="Microsoft logo" loading="lazy" width="140" height="56"><span>Microsoft</span></div>
+<div class="partner-logo-card"><img src="assets/brands/cisco.svg" alt="Cisco logo" loading="lazy" width="140" height="56"><span>Cisco</span></div>
+<div class="partner-logo-card"><img src="assets/brands/vmware.svg" alt="VMware logo" loading="lazy" width="140" height="56"><span>VMware</span></div>
+<div class="partner-logo-card"><img src="assets/brands/redhat.svg" alt="Red Hat logo" loading="lazy" width="140" height="56"><span>Red Hat</span></div>
+<div class="partner-logo-card"><img src="assets/brands/nutanix.svg" alt="Nutanix logo" loading="lazy" width="140" height="56"><span>Nutanix</span></div>
+<div class="partner-logo-card"><img src="assets/brands/veeam.svg" alt="Veeam logo" loading="lazy" width="140" height="56"><span>Veeam</span></div>
+<div class="partner-logo-card"><img src="assets/brands/apc.svg" alt="APC logo" loading="lazy" width="140" height="56"><span>APC</span></div>
+<div class="partner-logo-card"><img src="assets/brands/vertiv.svg" alt="Vertiv logo" loading="lazy" width="140" height="56"><span>Vertiv</span></div>
+<div class="partner-logo-card"><img src="assets/brands/kaspersky.svg" alt="Kaspersky logo" loading="lazy" width="140" height="56"><span>Kaspersky</span></div>
+<div class="partner-logo-card"><img src="assets/brands/symantec.svg" alt="Symantec logo" loading="lazy" width="140" height="56"><span>Symantec</span></div>
+<div class="partner-logo-card"><img src="assets/brands/zebra.svg" alt="Zebra logo" loading="lazy" width="140" height="56"><span>Zebra</span></div>
+<div class="partner-logo-card"><img src="assets/brands/gfi.jpg" alt="GFI logo" loading="lazy" width="140" height="56"><span>GFI</span></div>
+<div class="partner-logo-card"><img src="assets/brands/canon.svg" alt="Canon logo" loading="lazy" width="140" height="56"><span>Canon</span></div></div>
+  </div>
+</section>
+
+<section class="visual-band">
+  <div class="visual-inner">
+    <div class="visual-media reveal"><svg class="human-scene" viewBox="0 0 550 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="IT specialists discussing a solution together"><circle cx="274" cy="162" r="135" fill="#e1efea"/><rect x="199" y="53" width="161" height="118" rx="12" fill="#fff" stroke="#bdd9d4" stroke-width="2"/><path d="M217 75h73" stroke="#325c6a" stroke-width="5" stroke-linecap="round"/><path class="chart-draw" d="M217 141l28-19 24 6 35-34 33 9" fill="none" stroke="#0baf99" stroke-width="4" stroke-linecap="round"/><path d="M217 151h122" stroke="#d2e5e2" stroke-width="2"/><g transform="translate(119 114) scale(0.92 0.92)"><g class="person-breathe">
+<ellipse cx="0" cy="183" rx="36" ry="6" fill="#132c43" opacity=".12"/>
+<path d="M-22 8Q-28-35 0-34Q32-34 25 12L20 35H-24Z" fill="#172c43"/>
+<path d="M-19 100L-17 173M15 100L22 173" stroke="#233d58" stroke-width="18" stroke-linecap="round"/>
+<path d="M-24 177h24M16 177h26" stroke="#102238" stroke-width="10" stroke-linecap="round"/>
+<path d="M-26 46Q-26 22-9 20H10Q28 24 28 47L22 111H-23Z" fill="#0a998e"/>
+<path d="M-5 12v14q5 8 11 0V12" fill="#754730"/>
+<ellipse cy="-5" rx="19" ry="24" fill="#754730"/>
+<path d="M-20-7Q-27-37 1-34Q26-33 20-9L13-17Q-4-12-14-21L-16-5Z" fill="#172c43"/>
+<g class="human-eyes"><circle cx="-6" cy="-5" r="1.6" fill="#142235"/><circle cx="9" cy="-5" r="1.6" fill="#142235"/></g>
+<path d="M0 1l-2 4h4M-4 10q6 4 11-1" stroke="#653e31" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+<path d="M-7 28L0 42l9-14" fill="#e3fff7"/><path d="M0 43v34" stroke="#d3fff5" stroke-width="2"/><rect x="-7" y="72" width="15" height="19" rx="3" fill="#f5fffc"/><rect x="-3" y="77" width="7" height="3" fill="#7ba4ae"/>
+<path d="M-23 40L-36 80-16 91" fill="none" stroke="#0a998e" stroke-width="15" stroke-linecap="round"/><path d="M-21 88l11 5" stroke="#754730" stroke-width="10" stroke-linecap="round"/>
+<g class="human-arm"><path d="M23 40L41 66 65 49" fill="none" stroke="#0a998e" stroke-width="15" stroke-linecap="round"/><path d="M59 54l14-12" stroke="#754730" stroke-width="10" stroke-linecap="round"/><path d="M71 44l3-7" stroke="#754730" stroke-width="5" stroke-linecap="round"/></g>
+</g></g><g transform="translate(429 117) scale(-0.91 0.91)"><g class="person-breathe">
+<ellipse cx="0" cy="183" rx="36" ry="6" fill="#132c43" opacity=".12"/>
+
+<path d="M-19 100L-17 173M15 100L22 173" stroke="#233d58" stroke-width="18" stroke-linecap="round"/>
+<path d="M-24 177h24M16 177h26" stroke="#102238" stroke-width="10" stroke-linecap="round"/>
+<path d="M-26 46Q-26 22-9 20H10Q28 24 28 47L22 111H-23Z" fill="#648ba9"/>
+<path d="M-5 12v14q5 8 11 0V12" fill="#b87b53"/>
+<ellipse cy="-5" rx="19" ry="24" fill="#b87b53"/>
+<path d="M-20-7Q-27-37 1-34Q26-33 20-9L13-17Q-4-12-14-21L-16-5Z" fill="#172c43"/>
+<g class="human-eyes"><circle cx="-6" cy="-5" r="1.6" fill="#142235"/><circle cx="9" cy="-5" r="1.6" fill="#142235"/></g>
+<path d="M0 1l-2 4h4M-4 10q6 4 11-1" stroke="#653e31" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+<path d="M-7 28L0 42l9-14" fill="#e3fff7"/><path d="M0 43v34" stroke="#d3fff5" stroke-width="2"/><rect x="-7" y="72" width="15" height="19" rx="3" fill="#f5fffc"/><rect x="-3" y="77" width="7" height="3" fill="#7ba4ae"/>
+<path d="M-23 40L-36 80-16 91" fill="none" stroke="#648ba9" stroke-width="15" stroke-linecap="round"/><path d="M-21 88l11 5" stroke="#b87b53" stroke-width="10" stroke-linecap="round"/>
+<g class="human-arm"><path d="M23 40L41 66 65 49" fill="none" stroke="#648ba9" stroke-width="15" stroke-linecap="round"/><path d="M59 54l14-12" stroke="#b87b53" stroke-width="10" stroke-linecap="round"/><path d="M71 44l3-7" stroke="#b87b53" stroke-width="5" stroke-linecap="round"/></g>
+</g></g><path d="M181 237v63M379 237v63" stroke="#274a60" stroke-width="8"/><rect x="164" y="226" width="231" height="12" rx="6" fill="#d8ad77"/><path d="M234 185h85l-10 41h-65Z" fill="#284960"/><circle cx="277" cy="204" r="5" fill="#73d6c5"/><g class="cloud-float"><rect x="365" y="34" width="87" height="48" rx="13" fill="#fff"/><path d="M377 82l-6 12 20-12" fill="#fff"/><circle cx="390" cy="58" r="4" fill="#0aa592"/><circle cx="409" cy="58" r="4" fill="#0aa592"/><circle cx="428" cy="58" r="4" fill="#0aa592"/></g></svg>
+    </div>
+    <div class="visual-text reveal">
+      <span class="eyebrow">Consultation-Led</span>
+      <h3>We start with your business, not our product list.</h3>
+      <p>Every engagement begins with structured business analysis — understanding what's actually slowing your operations down — before we recommend infrastructure, cloud, or support solutions built around that reality.</p>
+    </div>
+  </div>
+</section>
+
+<section id="build-solution" aria-labelledby="solution-heading">
+ <div class="wrap solution-layout"><div class="solution-intro"><span class="eyebrow">LET’S BUILD YOUR SOLUTION</span><h2 id="solution-heading">Tell us what’s next<br>for your business.</h2><p>A few questions will help us understand your needs. Choose a starting point, tell us a little more, and review your enquiry before sharing it with our team.</p><ol class="solution-steps" aria-label="Questionnaire progress"><li data-progress="0" aria-current="step"><span>01</span>Your needs</li><li data-progress="1"><span>02</span>Project details</li><li data-progress="2"><span>03</span>Review &amp; send</li></ol><p class="solution-note">Your answers stay on this page until you choose WhatsApp or email. You’ll confirm sending in that app.</p></div>
+ <div class="solution-card"><noscript>Please enable JavaScript to use the questionnaire, or <a href="#contact">contact us directly</a>.</noscript><form id="solution-form" hidden>
+ <div class="solution-step" data-step="0"><fieldset><legend>What can we help you with?</legend><p class="field-help">Select one or more areas. Unsure? Choose “Help me decide”.</p><div class="solution-options">
+ <label class="solution-option"><input type="checkbox" name="needs" value="Data centre &amp; servers" id="need-0"><span>Data centre &amp; servers</span></label><label class="solution-option"><input type="checkbox" name="needs" value="Cloud &amp; migration" id="need-1"><span>Cloud &amp; migration</span></label><label class="solution-option"><input type="checkbox" name="needs" value="Networking &amp; Wi-Fi" id="need-2"><span>Networking &amp; Wi-Fi</span></label><label class="solution-option"><input type="checkbox" name="needs" value="Cybersecurity &amp; CCTV" id="need-3"><span>Cybersecurity &amp; CCTV</span></label><label class="solution-option"><input type="checkbox" name="needs" value="Software &amp; business apps" id="need-4"><span>Software &amp; business apps</span></label><label class="solution-option"><input type="checkbox" name="needs" value="Devices &amp; IT support" id="need-5"><span>Devices &amp; IT support</span></label><label class="solution-option"><input type="checkbox" name="needs" value="Power &amp; cooling" id="need-6"><span>Power &amp; cooling</span></label><label class="solution-option"><input type="checkbox" name="needs" value="Help me decide" id="need-7"><span>Help me decide</span></label><label class="solution-option"><input type="checkbox" name="needs" value="Something else" id="need-8"><span>Something else</span></label>
+ </div></fieldset><p id="needs-error" class="form-error" role="alert" hidden>Choose at least one area to continue.</p>
+ <div id="solution-suggestions" hidden><h3>Possible starting points</h3><p class="field-help">Suggestions based on your selections. Choose any that sound useful.</p><div id="suggestion-options" class="suggestion-options"></div></div>
+ <label class="input-label" for="project-description">What would you like to achieve? <span id="description-required">(optional)</span></label><textarea id="project-description" name="description" rows="4" maxlength="1200" placeholder="For example: connect our two offices, move email to the cloud, or build a new server room."></textarea><p class="field-help">For “Something else”, describe the solution you have in mind.</p>
+ <div class="solution-actions"><button type="button" class="btn btn-primary" data-next="1">Continue <span aria-hidden="true">→</span></button></div></div>
+ <div class="solution-step" data-step="1" hidden><h3 tabindex="-1">A little about your project</h3><p class="field-help">Only your name is required here. It’s fine if you’re still exploring.</p><div class="solution-fields">
+ <div><label class="input-label" for="client-name">Your name <span>(required)</span></label><input id="client-name" name="clientName" autocomplete="name" maxlength="100" required></div>
+ <div><label class="input-label" for="client-company">Organisation <span>(optional)</span></label><input id="client-company" name="company" autocomplete="organization" maxlength="120"></div>
+ <div><label class="input-label" for="client-email">Email <span>(optional)</span></label><input id="client-email" name="email" type="email" autocomplete="email" maxlength="160"></div>
+ <div><label class="input-label" for="client-phone">Phone <span>(optional)</span></label><input id="client-phone" name="phone" type="tel" autocomplete="tel" maxlength="40"></div>
+ <div><label class="input-label" for="project-size">People or devices to support</label><select id="project-size" name="size"><option>Not sure yet</option><option>1–10</option><option>11–50</option><option>51–200</option><option>201–500</option><option>More than 500</option></select></div>
+ <div><label class="input-label" for="project-timing">When do you want to start?</label><select id="project-timing" name="timing"><option>Just exploring</option><option>As soon as possible</option><option>Within 1 month</option><option>Within 3 months</option><option>Within 6 months</option><option>Later / flexible</option></select></div>
+ <div><label class="input-label" for="project-location">Project location <span>(optional)</span></label><input id="project-location" name="location" maxlength="140" placeholder="City, country, or remote"></div>
+ <div><label class="input-label" for="project-budget">Budget <span>(optional)</span></label><input id="project-budget" name="budget" maxlength="100" placeholder="Amount and currency, or not sure yet"></div>
+ </div><div class="solution-actions"><button type="button" class="btn btn-ghost" data-back="0">Back</button><button type="button" class="btn btn-primary" data-next="2">Review enquiry <span aria-hidden="true">→</span></button></div></div>
+ <div class="solution-step" data-step="2" hidden><h3 tabindex="-1">Your solution brief</h3><p class="field-help">Check your answers, then choose how to share them with Capital Group.</p><pre id="solution-summary"></pre><p class="field-help">These are starting points for a consultation, not a quotation or confirmed technical recommendation.</p><div class="send-options"><a id="send-whatsapp" class="btn btn-primary" target="_blank" rel="noopener">Continue in WhatsApp ↗</a><a id="send-email" class="btn btn-ghost">Continue in email ↗</a></div><p class="field-help">WhatsApp opens with your brief ready to send. Email opens a draft in your configured email app. Nothing is sent automatically.</p><div class="solution-actions"><button type="button" class="btn btn-ghost" data-back="1">Edit answers</button><button type="button" class="copy-brief">Copy brief</button></div><p id="solution-status" role="status" aria-live="polite"></p></div>
+ </form></div></div></section>
+<section id="contact" style="border-bottom:none;">
+  <div class="wrap">
+    <div class="contact-band reveal">
+      <div>
+        <span class="eyebrow" style="color:var(--accent-strong);">Get in Touch</span>
+        <h2 style="margin-top:14px;">Ready to modernise your IT infrastructure?</h2>
+        <p>Get in touch with our team to discuss your business needs — from a single infrastructure upgrade to a full managed-services engagement.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;">
+          <a class="btn btn-primary" href="https://wa.me/233244906925" target="_blank" rel="noopener">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 2a8 8 0 0 1 6.9 12l-.3.5.7 2.6-2.7-.7-.5.3A8 8 0 1 1 12 4Zm-3.1 3.9c-.2 0-.5 0-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3 1.8 2.8 4.4 3.9c2.2.9 2.6.7 3.1.7.5-.1 1.6-.6 1.8-1.3.2-.6.2-1.2.2-1.3-.1-.2-.3-.3-.6-.4l-1.8-.9c-.3-.1-.5-.1-.7.1l-.7.9c-.1.2-.3.2-.5.1-.7-.3-1.5-.8-2.1-1.5-.6-.6-1-1.3-1.2-1.7-.1-.2 0-.4.1-.5l.5-.6c.1-.2.2-.4.1-.6l-.9-2.1c-.1-.3-.4-.4-.6-.4Z"/></svg>
+            Message on WhatsApp
+          </a>
+          <a class="btn btn-ghost" href="mailto:mitchville91@gmail.com" style="color:inherit;border-color:color-mix(in srgb, currentColor 40%, transparent);">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
+            Email us
+          </a>
+        </div>
+      </div>
+      <div class="contact-fields">
+        <a class="field" href="https://wa.me/233244906925" target="_blank" rel="noopener" style="text-decoration:none;"><span>WhatsApp</span><span>+233 24 490 6925</span></a>
+        <a class="field" href="mailto:mitchville91@gmail.com" style="text-decoration:none;"><span>Email</span><span>mitchville91@gmail.com</span></a>
+        <div class="field"><span>Address</span><span>to be confirmed</span></div>
+        <div class="field"><span>Registration / TIN / VAT</span><span>to be confirmed</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div class="brand" style="font-size:14px;">
+      <span class="brand-logo-wrap"><img class="brand-logo" src="assets/capital-group.png" alt="Capital Group" width="2172" height="724"></span>
+    </div>
+    <p>Enterprise IT Infrastructure, Cloud &amp; Managed Services · Engineering Reliable Technology for Business Growth</p>
+  </div>
+</footer>
+
+<script>
+  try{
+    var els = document.querySelectorAll('.reveal');
+    if('IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+      }, {threshold:0.12});
+      els.forEach(function(el){ io.observe(el); });
+    } else {
+      els.forEach(function(el){ el.classList.add('in'); });
+    }
+  }catch(e){}
+  try{
+    var ctaMenu = document.querySelector('.cta-menu');
+    if(ctaMenu){
+      document.addEventListener('click', function(e){
+        if(ctaMenu.hasAttribute('open') && !ctaMenu.contains(e.target)){ ctaMenu.removeAttribute('open'); }
+      });
+    }
+  }catch(e){}
+</script>
+
+<script src="interactions.js"></script>
+<script src="solution.js"></script>
+</body>
+</html>
