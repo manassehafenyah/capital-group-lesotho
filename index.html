@@ -1125,7 +1125,7 @@
  <div><label class="input-label" for="client-name">Your name <span>(required)</span></label><input id="client-name" name="clientName" autocomplete="name" maxlength="100" required></div>
  <div><label class="input-label" for="client-company">Organisation <span>(optional)</span></label><input id="client-company" name="company" autocomplete="organization" maxlength="120"></div>
  <div><label class="input-label" for="client-email">Email <span>(optional)</span></label><input id="client-email" name="email" type="email" autocomplete="email" maxlength="160"></div>
- <div><label class="input-label" for="client-phone">Phone <span>(optional)</span></label><input id="client-phone" name="phone" type="tel" autocomplete="tel" maxlength="40"></div>
+ <div class="phone-fields"><label class="input-label" for="phone-country">Country &amp; calling code <span>(required)</span></label><select id="phone-country" name="phoneCountry" required aria-describedby="phone-country-status"><option value="">Select country</option></select><p id="phone-country-status" class="field-help" role="status">Detecting your country…</p><label class="input-label" for="client-phone">Phone number <span>(required)</span></label><input id="client-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="40" required aria-describedby="phone-country-status" placeholder="Your phone number"></div>
  <div><label class="input-label" for="project-size">People or devices to support</label><select id="project-size" name="size"><option>Not sure yet</option><option>1–10</option><option>11–50</option><option>51–200</option><option>201–500</option><option>More than 500</option></select></div>
  <div><label class="input-label" for="project-timing">When do you want to start?</label><select id="project-timing" name="timing"><option>Just exploring</option><option>As soon as possible</option><option>Within 1 month</option><option>Within 3 months</option><option>Within 6 months</option><option>Later / flexible</option></select></div>
  <div><label class="input-label" for="project-location">Project location <span>(optional)</span></label><input id="project-location" name="location" maxlength="140" placeholder="City, country, or remote"></div>
@@ -1193,6 +1193,8 @@
 </script>
 
 <script src="interactions.js"></script>
+<script src="assets/libphonenumber-min.js"></script>
+<script src="phone.js"></script>
 <script src="solution.js"></script>
 </body>
 </html>
